@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* 艺术动态风设计系统 - 字体导入 */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* 艺术动态风 - 彩虹渐变色系 */
+  --color-red: oklch(0.65 0.25 30);
+  --color-magenta: oklch(0.62 0.24 320);
+  --color-purple: oklch(0.58 0.22 280);
+  --color-blue: oklch(0.60 0.25 260);
+  --color-cyan: oklch(0.65 0.22 190);
+  --color-gold: oklch(0.75 0.15 70);
+  
+  --primary: var(--color-cyan);
+  --primary-foreground: oklch(0.98 0.001 0);
+  --sidebar-primary: var(--color-blue);
+  --sidebar-primary-foreground: oklch(0.98 0.001 0);
+  --chart-1: var(--color-red);
+  --chart-2: var(--color-magenta);
+  --chart-3: var(--color-purple);
+  --chart-4: var(--color-blue);
+  --chart-5: var(--color-cyan);
+  
+  --radius: 1.2rem;
+  /* 深色背景 - 艺术动态风 */
+  --background: oklch(0.08 0.02 280);
+  --foreground: oklch(0.95 0.01 0);
+  --card: oklch(0.12 0.02 280 / 0.6);
+  --card-foreground: oklch(0.95 0.01 0);
+  --popover: oklch(0.12 0.02 280 / 0.7);
+  --popover-foreground: oklch(0.95 0.01 0);
+  --secondary: var(--color-purple);
+  --secondary-foreground: oklch(0.98 0.001 0);
+  --muted: oklch(0.25 0.02 280);
+  --muted-foreground: oklch(0.75 0.01 0);
+  --accent: var(--color-magenta);
+  --accent-foreground: oklch(0.98 0.001 0);
+  --destructive: oklch(0.65 0.25 30);
+  --destructive-foreground: oklch(0.98 0.001 0);
+  --border: oklch(0.25 0.03 280 / 0.3);
+  --input: oklch(0.15 0.02 280 / 0.4);
+  --ring: var(--color-cyan);
+  --sidebar: oklch(0.12 0.02 280 / 0.5);
+  --sidebar-foreground: oklch(0.95 0.01 0);
+  --sidebar-accent: var(--color-magenta);
+  --sidebar-accent-foreground: oklch(0.98 0.001 0);
+  --sidebar-border: oklch(0.25 0.03 280 / 0.3);
+  --sidebar-ring: var(--color-cyan);
+}
+
+.dark {
+  /* 艺术动态风已在 :root 中定义为深色主题 */
+  /* 保持一致性 */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /* 艺术动态风 - 自定义组件 */
+  
+  /* 有机曲线卡片 */
+  .glass-card {
+    @apply rounded-3xl backdrop-blur-xl bg-card/40 border border-white/10 shadow-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* 彩虹渐变按钮 */
+  .gradient-btn {
+    @apply px-6 py-3 rounded-full font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, var(--color-red), var(--color-magenta), var(--color-purple), var(--color-blue), var(--color-cyan));
+    background-size: 200% 200%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .gradient-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+  
+  .gradient-btn:active {
+    transform: scale(0.98);
+  }
+  
+  /* 动态背景容器 */
+  .dynamic-bg {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, oklch(0.08 0.02 280), oklch(0.10 0.02 260), oklch(0.08 0.02 240));
+  }
+  
+  .dynamic-bg::before {
+    content: '';
+    @apply absolute inset-0 opacity-30;
+    background: url('/bg-gradient-dynamic.png');
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  /* 脉冲发光效果 */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 200, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 200, 0.6); }
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* 有机曲线分隔符 */
+  .wave-divider {
+    @apply w-full h-20 relative;
+  }
+  
+  .wave-divider svg {
+    @apply w-full h-full;
+  }
+  
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
